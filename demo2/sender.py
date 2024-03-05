@@ -1,10 +1,8 @@
 import sys
-
 import pika
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
-
 channel.queue_declare(queue='hello2', durable=True)
 
 message = ' '.join(sys.argv[1:]) or "Hello World!"
